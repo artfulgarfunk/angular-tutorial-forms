@@ -14,10 +14,12 @@ export class AppComponent implements OnInit {
 // runs before template is rendered
   ngOnInit() {
     this.signupForm = new FormGroup({
+      'userData': new FormGroup({
+        'username': new FormControl('default username jerry', Validators.required),
+        'email': new FormControl('jenkins@jenkins.jenkins', [Validators.required, Validators.email]),
+      }),
       // wrap as string to protect during minification
-      'username': new FormControl('default username jerry', Validators.required),
-      'email': new FormControl('jenkins@jenkins.jenkins', [Validators.required, Validators.email]),
-      'gender': new FormControl('male')
+        'gender': new FormControl('male')
     });
   }
 
